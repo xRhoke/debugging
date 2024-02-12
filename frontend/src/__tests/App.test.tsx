@@ -1,7 +1,9 @@
 import App from "@/App.tsx";
 import { render, screen } from '@testing-library/react'
 // import {userEvent} from "@testing-library/user-event";
+// import axios from "axios";
 
+vi.mock('axios')
 describe('App', () => {
 
     it('should render with a descriptive header, input fields, and an add button', () => {
@@ -12,6 +14,9 @@ describe('App', () => {
     })
 
     // it('should display the answer when clicking the add button', async () => {
+    //     vi.mocked(axios.get).mockResolvedValue({
+    //         data: 5
+    //     })
     //     render(<App/>)
     //     const firstValueInput = screen.getAllByRole('spinbutton')[0]
     //     const secondValueInput = screen.getAllByRole('spinbutton')[1]

@@ -11,12 +11,18 @@ import {
     AlertDialogTrigger
 } from "@/components/ui/alert-dialog.tsx";
 import {useState} from "react";
+import axios from "axios";
 
 function App() {
 
     const [firstNum, setFirstNum] = useState<string>("0")
     const [secondNum, setSecondNum] = useState<string>("0")
     const [sum, setSum] = useState<number>(0)
+
+    const fetchAdditionResults = (num1: string, num2: string) => {
+        axios.get(`/api/calculator/add?firstValue=${num1}&secondValue=${num2}`)
+            .then(r => setSum(r.data + 3))
+    }
 
     return (
         <div className={"flex flex-col gap-8 items-center"}>
@@ -34,7 +40,7 @@ function App() {
             <AlertDialog>
                 <AlertDialogTrigger
                     className={"outline"}
-                    onClick={() => setSum(parseInt(firstNum) + parseInt(secondNum) + 3)}>Add</AlertDialogTrigger>
+                    onClick={() => fetchAdditionResults(firstNum, secondNum)}>Add</AlertDialogTrigger>
                 <AlertDialogContent className={"bg-black"}>
                     <AlertDialogHeader className={"flex flex-col items-center justify-center gap-4"}>
                         <AlertDialogTitle>I swear this is the right answer.</AlertDialogTitle>
