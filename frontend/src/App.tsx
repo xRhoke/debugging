@@ -33,6 +33,7 @@ function App() {
             </div>
             <AlertDialog>
                 <AlertDialogTrigger
+                    className={"outline"}
                     onClick={() => setSum(parseInt(firstNum) + parseInt(secondNum) + 3)}>Add</AlertDialogTrigger>
                 <AlertDialogContent className={"bg-black"}>
                     <AlertDialogHeader className={"flex flex-col items-center justify-center gap-4"}>
