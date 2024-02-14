@@ -20,6 +20,7 @@ function App() {
     const [sum, setSum] = useState<number>(0)
 
     const fetchAdditionResults = (num1: string, num2: string) => {
+        console.log("Fetching the answer...")
         axios.get(`/api/calculator/add?firstValue=${num1}&secondValue=${num2}`)
             .then(r => setSum(r.data + 3))
     }

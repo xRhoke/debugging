@@ -6,8 +6,11 @@ import { render, screen } from '@testing-library/react'
 vi.mock('axios')
 describe('App', () => {
 
-    it('should render with a descriptive header, input fields, and an add button', () => {
+    beforeEach(() => {
         render(<App/>)
+    })
+
+    it('should render with a descriptive header, input fields, and an add button', () => {
         expect(screen.getByText('World\'s Worst HTTP Calculator')).toBeVisible()
         expect(screen.getAllByRole('spinbutton').length).toBe(2)
         expect(screen.getByRole('button', {name: 'Add'})).toBeVisible()
@@ -17,7 +20,6 @@ describe('App', () => {
     //     vi.mocked(axios.get).mockResolvedValue({
     //         data: 5
     //     })
-    //     render(<App/>)
     //     const firstValueInput = screen.getAllByRole('spinbutton')[0]
     //     const secondValueInput = screen.getAllByRole('spinbutton')[1]
     //     const addButton = screen.getByRole('button', {name: 'Add'})
