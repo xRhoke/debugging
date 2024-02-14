@@ -1,5 +1,6 @@
 import App from "@/App.tsx";
 import { render, screen } from '@testing-library/react'
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 // import {userEvent} from "@testing-library/user-event";
 // import axios from "axios";
 
@@ -11,6 +12,13 @@ describe('App', () => {
     })
 
     it('should render with a descriptive header, input fields, and an add button', () => {
+        //debug sample
+        // const num1 = 1;
+        // const num2 = 2
+        // const sum = num1 + num2
+        // console.log(sum)
+
+        // screen.logTestingPlaygroundURL()
         expect(screen.getByText('World\'s Worst HTTP Calculator')).toBeVisible()
         expect(screen.getAllByRole('spinbutton').length).toBe(2)
         expect(screen.getByRole('button', {name: 'Add'})).toBeVisible()

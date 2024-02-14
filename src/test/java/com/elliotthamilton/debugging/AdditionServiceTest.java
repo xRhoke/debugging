@@ -18,5 +18,4 @@ public class AdditionServiceTest {
 
         assertEquals(expected, actual);
     }
-
 }
